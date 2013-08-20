@@ -1,0 +1,57 @@
+﻿@model StoneFinch.SmpMaintenance.Views.Web.Models.UserAddViewModel
+@{
+    ViewBag.Title = "Add New User";
+}
+
+<h3>Add New User</h3>
+
+@Html.ValidationSummary()
+
+<form method="post">
+
+    @Html.LabelFor(x => x.UserName)
+    @Html.TextBoxFor(x => x.UserName)
+    @Html.ValidationMessageFor(x => x.UserName)
+
+    @Html.LabelFor(x => x.Password)
+    @Html.TextBoxFor(x => x.Password)
+    @Html.ValidationMessageFor(x => x.Password)
+
+    @Html.LabelFor(x => x.Roles)
+    <div style="height: 30px;">
+        <select id="Roles" name="Roles" class="span3" data-placeholder="Choose Roles..." style="display: none;" multiple="multiple">
+            @foreach (var p in Model.AllRoles)
+            {
+                if (Model.Roles != null && Model.Roles.Contains(p.Value))
+                {
+                <option selected="selected" value="@p.Value">@p.Text</option>
+                }
+                else
+                {
+                <option value="@p.Value">@p.Text</option>
+                }
+            }
+        </select>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Add New User" />
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // select starts hidden so that it does not blink on before chosen plugin, toggle visible
+            $("#Roles").show();
+            $("#Roles").chosen();
+
+        });
+
+    </script>
+}

@@ -1,0 +1,56 @@
+﻿@model StoneFinch.SmpMaintenance.Views.Web.Models.UserEditViewModel
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<h3>Edit User</h3>
+
+@Html.ValidationSummary()
+
+<form method="post">
+    @Html.HiddenFor(x => x.UserId)
+
+    UserName: @Model.UserName
+    <br />
+    <br />
+    @Html.LabelFor(x => x.ResetPassword, "Reset Password (leave blank to keep existing password)")
+    @Html.TextBoxFor(x => x.ResetPassword)
+
+    @Html.LabelFor(x => x.Roles)
+    <div style="height: 30px;">
+        <select id="Roles" name="Roles" class="span3" data-placeholder="Choose Roles..." style="display: none;" multiple="multiple">
+            @foreach (var p in Model.AllRoles)
+            {
+                if (Model.Roles != null
+                    && Model.Roles.Contains(p.Value))
+                {
+                <option selected="selected" value="@p.Value">@p.Text</option>
+                }
+                else
+                {
+                <option value="@p.Value">@p.Text</option>
+                }
+            }
+        </select>
+    </div>
+    <br />
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Update User" />
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // select starts hidden so that it does not blink on before chosen plugin, toggle visible
+            $("#Roles").show();
+            $("#Roles").chosen();
+
+        });
+
+    </script>
+}

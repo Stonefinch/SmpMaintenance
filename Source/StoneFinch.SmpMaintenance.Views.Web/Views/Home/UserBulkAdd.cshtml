@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Bulk Add New Users";
+}
+
+<h3>Bulk Add New Users</h3>
+
+@Html.ValidationSummary()
+
+<form method="post">
+    Enter Comma separated user data without header information.<br />
+    Example:<br />
+    myAdminUser, TH3P4SSW0RD, Admin<br />
+    mySuperUser, AN0TH3RP4SSW0RD, Super<br />
+    myNoRoleUser, P4SSW0RDAGAIN,<br />
+    myTwoRoleUser, P4SSW0RD, Admin Super<br />
+    <br />
+    <br />
+    <br />
+    <textarea id="userBulkAddCsv" name="userBulkAddCsv" style="width: 600px; height: 400px;"></textarea>
+    <br />
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Bulk Add Users" />
+</form>

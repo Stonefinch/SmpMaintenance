@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Configure Connection String";
+}
+<h3>Welcome to the StoneFinch ASP.NET MVC 4 Simple Membership Provider Maintenance Website!</h3>
+<br />
+<div>
+    This site will allow you to:
+    <ul>
+        <li>Add New Users</li>
+        <li>Bulk Add New Users</li>
+        <li>Search Users</li>
+        <li>Add New Roles</li>
+        <li>Edit Existing Users</li>
+        <li>Reset User Password (on Edit User page)</li>
+        <li>Add Users to Roles</li>
+        <li>Remove Users from Roles</li>
+    </ul>
+</div>
+<br />
+<h4>Please provide the connection string to the database containing the backing data for the Simple Membership Provider</h4>
+<div class="muted">
+    Example: Data Source=.;Initial Catalog=Northwind;Integrated Security=SSPI;
+</div>
+<br />
+<form method="post">
+    <label for="c">Connection String:</label>
+    <input type="text" id="c" name="c" style="width: 600px;" value="@ViewBag.ConnectionString" />
+    <br />
+    <br />
+    <div class="muted">
+        At this time this website is only designed to work with the default settings for the UserProfile table:<br />
+        <br />
+        Table Name: UserProfile<br />
+        User ID Column Name: UserId<br />
+        User Name Column Name: UserName<br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Submit" />
+</form>
+
+@Html.ValidationSummary()

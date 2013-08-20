@@ -1,0 +1,76 @@
+﻿@model StoneFinch.SmpMaintenance.Views.Web.Models.UserListViewModel
+@{
+    ViewBag.Title = "List Users";
+}
+
+<h3>List Users</h3>
+
+@Html.ValidationSummary()
+
+<form method="post">
+
+    @Html.LabelFor(x => x.UserProfileSearchCriteriaViewModel.UserName, "User Name Contains:")
+    @Html.TextBoxFor(x => x.UserProfileSearchCriteriaViewModel.UserName)
+
+    @Html.LabelFor(x => x.UserProfileSearchCriteriaViewModel.RoleName, "Role:")
+    @Html.DropDownListFor(x => x.UserProfileSearchCriteriaViewModel.RoleName, Model.AllRoles)
+
+    @Html.LabelFor(x => x.UserProfileSearchCriteriaViewModel.ResultLimit, "Result Limit:")
+    @Html.TextBoxFor(x => x.UserProfileSearchCriteriaViewModel.ResultLimit)
+
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Search" />
+</form>
+
+<h4>Actions</h4>
+<ul>
+    <li>@Html.ActionLink("Add New User", "UserAdd")</li>
+    <li>@Html.ActionLink("Bulk Add New Users", "UserBulkAdd")</li>
+    <li>@Html.ActionLink("Add New Role", "RoleAdd")</li>
+</ul>
+
+<table id="resultsTable" class="tablesorter">
+    <thead>
+        <tr>
+            <th>User Id
+            </th>
+            <th>User Name
+            </th>
+            <th>Roles
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.UserProfileViewModels)
+        {
+            <tr>
+                <td>
+                    @user.UserId
+                </td>
+                <td>
+                    @Html.ActionLink(user.UserName, "UserEdit", new { userName = user.UserName })
+                </td>
+                <td>
+                    @user.Roles
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // set default sort to LastName asc, FirstName asc
+            $("#resultsTable").tablesorter({
+                sortList: [[1, 0]]
+            });
+
+        });
+
+    </script>
+}

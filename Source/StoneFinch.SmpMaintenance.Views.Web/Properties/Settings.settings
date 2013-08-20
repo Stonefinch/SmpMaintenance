@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="StoneFinch.SmpMaintenance.Views.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SendEmailActive" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SiteRootUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">appname.azurewebsites.net</Value>
+    </Setting>
+    <Setting Name="SmtpHostUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+    <Setting Name="SmtpHostPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="SmtpUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">email@gmail.com</Value>
+    </Setting>
+    <Setting Name="SmtpPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">password</Value>
+    </Setting>
+    <Setting Name="FromAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">email@gmail.com</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

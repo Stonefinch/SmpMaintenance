@@ -16,3 +16,7 @@ Current Functionality:
   - Reset User Password (on Edit User page)
   - Add Users to Roles
   - Remove Users from Roles
+
+More Information:
+[Blog Post on Functionality](http://aaron-hoffman.blogspot.com/2013/08/aspnet-mvc-4-simplemembershipprovider_20.html#uds-search-results)
+[Blog Post on ASP MVC 4 Membership](http://aaron-hoffman.blogspot.com/2013/02/aspnet-mvc-4-membership-users-passwords.html)
